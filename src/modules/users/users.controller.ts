@@ -21,17 +21,17 @@ export class UsersController {
     return this.usersService.findByEmail(email);
   }
 
-  @Post('login')
-async login(@Req() req: Request, 
-@Res() res: Response,
-@Body() body: any) {
-  const user = await this.usersService.validateUser(body.email, body.password);
-  if (!user){
-    req.session.userId ==null;
-    throw new UnauthorizedException();
-  }
-  req.session.userId = user.id;
-  return res.status(200).json({ ok: true, userId: user.id });
+//   @Post('login')
+// async login(@Req() req: Request, 
+// @Res() res: Response,
+// @Body() body: any) {
+//   const user = await this.usersService.validateUser(body.email, body.password);
+//   if (!user){
+//     req.session.userId ==null;
+//     throw new UnauthorizedException();
+//   }
+//   req.session.userId = user.id;
+//   return res.status(200).json({ ok: true, userId: user.id });
 
-}
+// }
 }
